@@ -74,7 +74,6 @@ public class TalkerController {
 
   @GetMapping("/search")
   public ResponseEntity<List<Talker>> getBySubstringOfName(@RequestParam("q") String q) {
-    System.out.println(this.talkerRepository.findByNameContaining(q));
-    return new ResponseEntity<List<Talker>>(this.talkerRepository.findByNameContaining("%"+ q + "%"), HttpStatus.OK);
+    return new ResponseEntity<List<Talker>>(this.talkerRepository.findByNameContaining(q), HttpStatus.OK);
   }
 }
